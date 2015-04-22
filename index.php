@@ -1,36 +1,48 @@
 <?php
-
-class Singleton
+/*class Singleton
 {
-	public static function instance()
+	public static function NewInstance()
 	{
 		static $inst = null;
 		if (null === $inst) 
 		{
 			$inst = new static();
+			
+			$file = fopen("testcsv.csv","r");
+			$data = fgetcsv($file);
+			
+			while(!feof($file))
+			[
+				$schools = fgetcsv($file);
+				$unitIds[] = $array[0];
+				$array[] = array_combine($data, $schools);
+			]
+			
+			$inst = array_combine($unitIds, $array);
+			fclose($file);
 		}
 															
-		return $inst;
+		print_r($inst);
+		//return $inst;
 	}
-
-	public function __construct()
-	{
-		$file = fopen("testcsv.csv","r");
-		//$data = fgetcsv($file);
-		while(!feof($file))
-		{
-			 echo fgetcsv($file). "<br />";
-		}
-		
-		fclose($file);
-	}
-
-}
-
-$object = new Singleton();
+}*/
 
 
+	
+$file = fopen("testcsv.csv","r");
 
-echo "this is a test";
+while(! feof($file))
+  {
+  print_r(fgetcsv($file));
+  }
+
+fclose($file);
+	
+	
+	
+	
+	
+	
+	
 
 ?>
