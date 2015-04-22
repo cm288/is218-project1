@@ -1,5 +1,5 @@
 <?php
-/*class Singleton
+class Singleton
 {
 	public static function NewInstance()
 	{
@@ -12,36 +12,37 @@
 			$data = fgetcsv($file);
 			
 			while(!feof($file))
-			[
+			{
 				$schools = fgetcsv($file);
 				$unitIds[] = $array[0];
 				$array[] = array_combine($data, $schools);
-			]
+			}
 			
 			$inst = array_combine($unitIds, $array);
 			fclose($file);
 		}
 															
-		print_r($inst);
+		//print_r($inst);
 		//return $inst;
+		var_dump($inst);
 	}
-}*/
+}
 
 
-	
-$file = fopen("testcsv.csv","r");
+$obj = Singleton::NewInstance();
+/*$file = fopen("testcsv.csv","r");
 
 while(! feof($file))
   {
   print_r(fgetcsv($file));
   }
 
-fclose($file);
+fclose($file);*/
 	
 	
 	
 	
-	
+echo "test"; 
 	
 	
 
