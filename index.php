@@ -23,27 +23,37 @@ class Singleton
 		}
 															
 		//print_r($inst);
-		//return $inst;
-		var_dump($inst);
+		return $inst;
+		//var_dump($inst);
 	}
 }
 
+class Schools
+{
+	public static function print_schools()
+	{
+		$CSVarray = Singleton::NewInstance();
+		foreach($CSVarray as $key=>$value)
+		echo '<a href="?page='.$key.'">'.$value["INSTNM"].'</a><br>';
+	}
+}
 
-$obj = Singleton::NewInstance();
-/*$file = fopen("testcsv.csv","r");
+$obj = Schools::print_schools();
+
+
+//Test Blocks
+
+/*
+$file = fopen("testcsv.csv","r");
 
 while(! feof($file))
   {
   print_r(fgetcsv($file));
   }
 
-fclose($file);*/
+fclose($file);
+*/
 	
-	
-	
-	
-echo "test"; 
-	
-	
-
+		
+echo "test";
 ?>
