@@ -62,36 +62,15 @@ class SchoolData
 	public static function attributes()
 	{
 		$unitid = $_REQUEST["page"];
-		return Singleton::NewInstance()[$unitid];
+		return Singleton::NewInstance();
 	}
 }
 
 
+$obj = Schools::print_schools();
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-//Test Blocks
-/*
-$file = fopen("testcsv.csv","r");
-while(! feof($file))
-  {
-  print_r(fgetcsv($file));
-  }
-fclose($file);
-*/
-	
-		
-echo "test";
 ?>
