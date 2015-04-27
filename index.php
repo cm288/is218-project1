@@ -26,6 +26,24 @@ class Singleton
 		return $inst;
 		//var_dump($inst);
 	}
+
+
+	public static function Dict()
+	{
+		if (null===$inst)
+		{
+			$file = fopen("dict.csv","r");
+		
+			while(!feof($file))
+			{
+				$data[] = fgets($file);
+			}
+		
+			fclose($file);
+		}
+	
+		return $data;
+	}
 }
 
 class Schools
@@ -35,22 +53,42 @@ class Schools
 		$CSVarray = Singleton::NewInstance();
 		foreach($CSVarray as $key=>$value)
 		echo '<a href="?page='.$key.'">'.$value["INSTNM"].'</a><br>';
+		
 	}
 }
 
-$obj = Schools::print_schools();
+class SchoolData
+{
+	public static function attributes()
+	{
+		$unitid = $_REQUEST["page"];
+		return Singleton::NewInstance()[$unitid];
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //Test Blocks
-
 /*
 $file = fopen("testcsv.csv","r");
-
 while(! feof($file))
   {
   print_r(fgetcsv($file));
   }
-
 fclose($file);
 */
 	
